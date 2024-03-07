@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Stone,Paper,Scissorsr</title>
+    <link rel="stylesheet" href="StonePaperScissorGame/game.css" />
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Welcome</h1>
+      <br />
+
+      <div id="Heading">
+        <h1>Stone, Paper, Scissorsr - Game</h1>
+        <br>
+      </div>
+
+    <button class="button" onclick="
+    
+    let computerChoice = generatecompchoice();
+    let result = getResult('Stone🪨',computerChoice); 
+    showResult('Stone🪨',computerChoice,result);
+    ">Stone</button>
+
+    <button class="button" onclick=" 
+    
+    computerChoice = generatecompchoice();
+    result = getResult('Paper📃',computerChoice);
+    showResult('Paper📃',computerChoice,result);
+    ">Paper</button>
+
+    <button class="button" onclick="
+    
+    computerChoice = generatecompchoice(); 
+    result = getResult('Scissor✂️',computerChoice);
+    showResult('Scissor✂️',computerChoice,result);
+    ">Scissorsr</button>
+    </div>
+
+    <script>
+      function generatecompchoice() {
+        
+        let randomNumber = Math.random() * 3;
+        if (randomNumber <= 1) {
+          computerChoice = "Stone🪨";
+        } else if (randomNumber <= 2) {
+          computerChoice = "Paper📃";
+        } else {
+          computerChoice = "Scissor✂️";
+        }
+        return computerChoice;
+      }
+
+      function getResult(userMove, compMove) {
+        if (userMove === "Stone🪨") {
+          if (compMove === "Scissor✂️") {
+            return "You are Won!🏆";
+          } else if (compMove === "Stone🪨") {
+            return "It is a Draw😒";
+          } else if (compMove === "Paper📃") {
+            return "You are Lost!😢";
+          }
+        } 
+        else if (userMove === "Paper📃") {
+          if (compMove === "Scissor✂️") {
+            return "You are Lost!😢";
+          } else if (compMove === "Stone🪨") {
+            return "You are Won!🏆";
+          } else if (compMove === "Paper📃") {
+            return "It is a Draw😒";
+          }
+        } 
+        else {
+          if (compMove === "Scissor✂️") {
+            return "It is a Draw😒";
+          } else if (compMove === "Stone🪨") {
+            return "You are Lost!😢";
+          } else if (compMove === "Paper📃") {
+            return "You are Won!🏆";
+          }
+        }
+      }
+
+      function showResult(userMove,compMove,result){
+        alert(` -You have chosen ${userMove} -------------- Computer Chose ${compMove} - ${result} `)
+      }
+
+    </script>
+  </body>
+</html>
